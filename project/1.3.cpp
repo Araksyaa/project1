@@ -1,15 +1,15 @@
 #include <iostream> 
 #include <string.h>
 using namespace std;
-
+// Функция для проверки, является ли символ гласным
 bool isVowel(char c) {
    
     c = tolower(c);
-  return (c == '�' || c == '�' || c == '�' || c == '�' ||
-        c == '�' || c == '�' || c == '�' || c == '�' || c == '�' || c == '�');
+  return (c == 'à' || c == 'å' || c == '¸' || c == 'è' ||
+        c == 'î' || c == 'ó' || c == 'û' || c == 'ý' || c == 'þ' || c == 'ÿ');
 }
 
-
+// Функция для проверки, является ли слово симметричным
 bool isSymmetric(const char* word) {
     int len = strlen(word); 
     for (int i = 0; i < len / 2; i++) { 
@@ -20,7 +20,7 @@ bool isSymmetric(const char* word) {
     return true; 
 }
 
-
+// Функция для проверки, чередуются ли гласные и согласные в слове
 bool iscoglco(const char* word) {
     for (int i = 0; word[i] != '\0'; i++) { 
         if (i > 0 && isVowel(word[i]) == isVowel(word[i - 1])) { 
@@ -30,7 +30,7 @@ bool iscoglco(const char* word) {
     return true; 
 }
 
-
+// Функция для обработки строки и оставления только нужных слов
 void processString(const char* input) {
     char word[100]; 
     int index = 0; 
@@ -53,9 +53,10 @@ void processString(const char* input) {
     }
 }
 int main() {
+   // Пример ввода
     setlocale(LC_ALL, "Russian");
-    const char* str = "��� ��� ���� �����. "; 
-    cout << "�����, ������� ������������� ��������:" << endl;
+    const char* str = "àáà òóò ìàìà ðó÷êà. "; 
+    cout << "Ñëîâà, êîòîðûå ñîîòâåòñòâóþò óñëîâèÿì:" << endl;
     processString(str); 
     return 0; 
 }
